@@ -48,9 +48,9 @@ router.post('/orders', auth, async (req, res) => {
       createdAt: createdAt.toString()
     });
 
-    await newOrder.save();
+    const order = await newOrder.save();
 
-    res.status(201).json({ message: 'Success operation' })
+    res.status(201).json({ message: `Order №${order.id} success created!` })
   } catch (e) {
     res.status(500).json({ message: 'Order create error' });
   }
