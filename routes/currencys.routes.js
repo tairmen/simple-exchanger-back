@@ -52,19 +52,22 @@ router.put('/currencys/:id', auth, async (req, res) => {
 
 /** For create currencys
  *  Models for creating on README.md
- *
- *  router.post('/currencys', async (req, res) => {
- *   try {
- *     const { symbol, name, minBuy, maxBuy, minSell, maxSell } = req.body;
- *     const newCurrency = new Currency({ symbol, name, minBuy, maxBuy, minSell, maxSell });
- *     await newCurrency.save();
- *
- *     res.status(200).json({ message: 'Currency created' });
- *   } catch (e) {
- *     res.status(500).json({ message: 'Create currency error' });
- *   }
- * });
- *
- * */
+ **/
+  router.post('/currencys', async (req, res) => {
+   try {
+     const uah = { symbol: "₴", name: "UAH", minBuy: "1000", maxBuy: "320000", minSell: "1200", maxSell: "260000" };
+     const usd = { symbol: "$", name: "USD", minBuy: "100", maxBuy: "2800", minSell: "80", maxSell: "4200" }
+//    const { symbol, name, minBuy, maxBuy, minSell, maxSell } = req.body;
+//     const newCurrency = new Currency({ symbol, name, minBuy, maxBuy, minSell, maxSell });
+    const newCurrencyUAH = new Currency({ ...uah });
+   await newCurrencyUAH.save();
+    const newCurrencyUSD = new Currency({ ...usd });
+   await newCurrencyUSD.save();
+
+    res.status(200).json({ message: 'Currency created' });
+  } catch (e) {
+    res.status(500).json({ message: 'Create currency error' });
+   }
+ });
 
 export default router;
