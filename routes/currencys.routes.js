@@ -66,6 +66,7 @@ router.put('/currencys/:id', auth, async (req, res) => {
 
     res.status(200).json({ message: 'Currency created' });
   } catch (e) {
+    console.log(e)
     res.status(500).json({ message: 'Create currency error' });
    }
  });
