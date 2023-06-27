@@ -60,7 +60,7 @@ router.put('/ranges/:id', auth, async (req, res) => {
   try {
     const rangeId = req.params.id;
 
-    const { valueBuyUSD, valueSellUSD } = req.body;
+    const { valueBuyUSD, valueSellUSD, rangeStart, rangeEnd } = req.body;
 
     const reqRange = await Range.findById(rangeId);
 
@@ -70,6 +70,8 @@ router.put('/ranges/:id', auth, async (req, res) => {
 
     reqRange.valueBuyUSD = valueBuyUSD;
     reqRange.valueSellUSD = valueSellUSD;
+    reqRange.rangeStart = rangeStart;
+    reqRange.rangeEnd = rangeEnd;
 
     await reqRange.save();
 

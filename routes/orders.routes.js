@@ -50,7 +50,7 @@ router.post('/orders', auth, async (req, res) => {
 
     const order = await newOrder.save();
 
-    res.status(201).json({ message: `Order №${order.id} success created!` })
+    res.status(201).json({ message: `Заказ №${order.id.slice(0,6)} создан успешно!` })
   } catch (e) {
     res.status(500).json({ message: 'Order create error' });
   }

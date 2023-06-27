@@ -55,8 +55,8 @@ router.put('/currencys/:id', auth, async (req, res) => {
  **/
   router.post('/currencys', async (req, res) => {
    try {
-     const uah = { symbol: "₴", name: "UAH", minBuy: "1000", maxBuy: "320000", minSell: "1200", maxSell: "260000" };
-     const usd = { symbol: "$", name: "USD", minBuy: "100", maxBuy: "2800", minSell: "80", maxSell: "4200" }
+     const uah = { symbol: "₴", name: "UAH", minBuy: "1000", maxBuy: "10000000", minSell: "1000", maxSell: "10000000" };
+     const usd = { symbol: "₽", name: "RUB", minBuy: "500", maxBuy: "5000000", minSell: "500", maxSell: "5000000" }
 //    const { symbol, name, minBuy, maxBuy, minSell, maxSell } = req.body;
 //     const newCurrency = new Currency({ symbol, name, minBuy, maxBuy, minSell, maxSell });
     const newCurrencyUAH = new Currency({ ...uah });
