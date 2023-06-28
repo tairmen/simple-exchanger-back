@@ -9,7 +9,8 @@ const schema = new Schema({
   value: { type: String, require: true },
   email: { type: String, require: true },
   telephone: { type: String, require: true },
-  createdAt: { type: String, require: true }
+  createdAt: { type: String, require: true },
+  uuid: { type: String, require: true }
 });
 
 export default model('Order', schema);

@@ -37,7 +37,7 @@ router.post('/orders', auth, async (req, res) => {
     const status = 'pending';
     const createdAt = new Date().getTime();
 
-    const uuid = Math.floor(Math.random() * 10000000);
+    const uuid = Math.floor(Math.random() * 10000000).toString();
 
     const newOrder = new Order({
       status,
