@@ -19,6 +19,7 @@ router.get('/orders', auth, async (req, res) => {
         value: order.value,
         email: order.email,
         telephone: order.telephone,
+        uuid: order.uuid,
         createdAt: order.createdAt
       }
     });
@@ -36,6 +37,8 @@ router.post('/orders', auth, async (req, res) => {
     const status = 'pending';
     const createdAt = new Date().getTime();
 
+    const uuid = Math.floor(Math.random() * 10000000);
+
     const newOrder = new Order({
       status,
       currencyToBuyId,
@@ -45,6 +48,7 @@ router.post('/orders', auth, async (req, res) => {
       value,
       email,
       telephone,
+      uuid,
       createdAt: createdAt.toString()
     });
 
@@ -88,6 +92,7 @@ router.put('/orders/:id', auth, async (req, res) => {
         value: order.value,
         email: order.email,
         telephone: order.telephone,
+        uuid: order.uuid,
         createdAt: order.createdAt
       }
     });
@@ -121,6 +126,7 @@ router.delete('/orders/:id', auth, async (req, res) => {
         value: order.value,
         email: order.email,
         telephone: order.telephone,
+        uuid: order.uuid,
         createdAt: order.createdAt
       }
     });
