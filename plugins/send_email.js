@@ -38,8 +38,8 @@ export const send_email =  (data) => {
                 Email <span class="colored">${data.email}</span>
             </h2>
             <h2>Телефон <span class="colored">${data.telephone}</span></h2>
-            <h2>Сумма которую отдает <span class="colored">${data.value} ${data.currencyToBuyName}</span></h2>
-            <h2>Сумма которую получает <span class="colored">${data.valueSell} ${data.currencyToSellName}</span></h2>
+            <h2>Сумма которую отдает <span class="colored">${data.value} ${data.currencyToSellName}</span></h2>
+            <h2>Сумма которую получает <span class="colored">${data.valueSell} ${data.currencyToBuyName}</span></h2>
         </div>
         `
     };
