@@ -1,4 +1,4 @@
-let nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
 let mail = nodemailer.createTransport({
     service: process.env.EMAIL_TYPE,
