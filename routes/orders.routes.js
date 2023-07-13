@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { auth } from '../middleware/crm.auth.middleware.js';
 import Order from '../models/order.js';
-let buying_mail = require('../../plugins/buying_mail');
+import buying_mail from '../../plugins/buying_mail';
 
 const router = Router();
 
