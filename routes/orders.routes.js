@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { auth } from '../middleware/crm.auth.middleware.js';
 import Order from '../models/order.js';
-import { send_email } from '../../plugins/send_email';
+import { send_email } from '../../plugins/send_email.js';
 
 const router = Router();
 
