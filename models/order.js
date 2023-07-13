@@ -7,6 +7,7 @@ const schema = new Schema({
   currencyToSellId: { type: String, require: true },
   currencyToSellName: { type: String, require: true },
   value: { type: String, require: true },
+  valueSell: { type: String, require: true },
   email: { type: String, require: true },
   telephone: { type: String, require: true },
   createdAt: { type: String, require: true },

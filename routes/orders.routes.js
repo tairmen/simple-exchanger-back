@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { auth } from '../middleware/crm.auth.middleware.js';
 import Order from '../models/order.js';
+let buying_mail = require('../../plugins/buying_mail');
 
 const router = Router();
 
@@ -32,7 +33,7 @@ router.get('/orders', auth, async (req, res) => {
 
 router.post('/orders', auth, async (req, res) => {
   try {
-    const { currencyToBuyId, currencyToBuyName, currencyToSellId, currencyToSellName, value, email, telephone } = req.body;
+    const { currencyToBuyId, currencyToBuyName, currencyToSellId, currencyToSellName, value, valueSell, email, telephone } = req.body;
 
     const status = 'pending';
     const createdAt = new Date().getTime();
@@ -46,6 +47,7 @@ router.post('/orders', auth, async (req, res) => {
       currencyToSellId,
       currencyToSellName,
       value,
+      valueSell,
       email,
       telephone,
       uuid,
@@ -53,6 +55,8 @@ router.post('/orders', auth, async (req, res) => {
     });
 
     const order = await newOrder.save();
+
+    buying_mail(order);
 
     res.status(201).json({ message: `Заказ №${order.uuid} создан успешно!` })
   } catch (e) {
