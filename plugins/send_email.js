@@ -8,7 +8,7 @@ let mail = nodemailer.createTransport({
     }
 });
 
-module.exports = function (data) {
+export const send_email =  (data) => {
     let mailOptions = {
         from: `TrueMoneyExchange <${process.env.EMAIL}>`,
         to: process.env.EMAIL_SUPPORT,

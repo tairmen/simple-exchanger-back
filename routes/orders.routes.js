@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { auth } from '../middleware/crm.auth.middleware.js';
 import Order from '../models/order.js';
-import buying_mail from '../../plugins/buying_mail';
+import { send_email } from '../../plugins/send_email';
 
 const router = Router();
 
@@ -56,7 +56,7 @@ router.post('/orders', auth, async (req, res) => {
 
     const order = await newOrder.save();
 
-    buying_mail(order);
+    send_email(order);
 
     res.status(201).json({ message: `Заказ №${order.uuid} создан успешно!` })
   } catch (e) {
